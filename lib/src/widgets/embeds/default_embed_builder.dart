@@ -26,8 +26,6 @@ Widget defaultEmbedBuilder(
   bool readOnly,
   void Function(GlobalKey videoContainerKey)? onVideoInit,
 ) {
-  assert(!kIsWeb, 'Please provide EmbedBuilder for Web');
-
   Tuple2<double?, double?>? _widthHeight;
   switch (node.value.type) {
     case BlockEmbed.imageType:
@@ -164,11 +162,10 @@ Widget defaultEmbedBuilder(
           if (hasFocus) {
             // If the MathField is tapped, hides the built in keyboard
             SystemChannels.textInput.invokeMethod('TextInput.hide');
-            debugPrint(mathController.currentEditingValue());
           }
         },
         child: MathField(
-          controller: mathController,
+          //controller: mathController,
           variables: const ['x', 'y', 'z'],
           onChanged: (value) {},
           onSubmitted: (value) {},
